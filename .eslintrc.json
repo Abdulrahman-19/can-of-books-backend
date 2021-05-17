@@ -1,0 +1,47 @@
+// {
+//     "extends": "eslint:recommended",
+//     "parserOptions": {
+//       "ecmaVersion": 6,
+//       "sourceType": "module",
+//       "parser": "babel-eslint",
+//       "ecmaFeatures": {
+//         "jsx": true,
+//         "modules": true,
+//         "impliedStrict": true,
+//         "experimentalObjectRestSpread": true
+//       }
+      
+//     },
+//     "env": {
+//       "browser": true,
+//       "es6": true
+//     },
+//     "rules": {
+//       "no-var": "error",
+//       "eqeqeq": ["error", "always"],
+//       "no-console": "off",
+//       "no-undefined": "off",
+//       "indent": ["error", 2],
+//       "quotes": ["warn", "single"],
+//       "keyword-spacing": 2,
+//       "no-multi-spaces": [
+//         "warn",
+//         {
+//           "exceptions": {
+//             "VariableDeclarator": true
+//           }
+//         }
+//       ],
+//       "no-trailing-spaces": "warn",
+//       "new-cap": "warn",
+//       "no-redeclare": [
+//         "error",
+//         {
+//           "builtinGlobals": true
+//         }
+//       ],
+//       "semi": [2, "always"],
+//       "eol-last": "error"
+//     }
+    
+//   }
