@@ -24,24 +24,7 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-function seedBookCollection() {
-  const book1 = new getData.myBookModel({
-      name: 'How to code part 1',
-      description: 'watch youtube tutorial',
-      status: 'unavailable'
-  });
-  const book2 = new getData.myBookModel({
-      name: 'How to code part 2',
-      description: 'watch youtube tutorial',
-      status: 'available'
-  });
-  console.log(book1);
-  console.log(book2);
 
-  book1.save();
-  book2.save();
-}
-// seedBookCollection();
 function seedOwnerCollection() {
 
   const abed = new getData.myOwnerModel({
@@ -110,7 +93,22 @@ getData.myOwnerModel.find({ email: email }, (error, ownerData) => {
   res.send(' Book deleted!')
 });
 }
+app.put('/books/:index', updateBook);
 
+function updateBook (req, res){
+  const index = Number(req.params.index)
+  const { email , bookName ,description , status } = req.body;
+  getData.myOwnerModel.find({ email: email }, (error, ownerData) => {
+    if (error) res.send('didnt work Update');
+    ownerData[0].books.splice(index , 1 , {
+      name: bookName,
+      description : description ,
+      status: status
+    }) 
+    ownerData[0].save();
+    res.send(ownerData[0].books)
+  });
+}
 
 app.listen(port, () => {
   console.log(`Server started on ${port}`);
